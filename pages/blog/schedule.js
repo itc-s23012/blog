@@ -17,6 +17,7 @@ const getStaticProps = async () => {
       title: post.title,
       publish: post.publishDate,
       content: post.content,
+      eyecatch: post.eyecatch,
       categories: post.categories
     }
   }
