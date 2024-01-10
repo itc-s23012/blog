@@ -1,21 +1,24 @@
-import { client } from 'lib/api'
+import { getPostBySlug } from 'lib/api'
+import Container from 'components/container'
 
-const Schedule = () => {
-  return <h1>記事のタイトル</h1>
+const Schedule = ({ title, publish, content, eyecatch, categories }) => {
+  return (
+    <Container>
+      <h1>{title}</h1>
+    </Container>
+  )
 }
 
 const getStaticProps = async () => {
-  const res = await client.get({
-    endpoint: 'blogs'
-  })
-  try {
-    console.log(res)
-  } catch (err) {
-    console.log(err)
-  }
-
+  const slug = 'music'
+  const post = await getPostBySlug(slug)
   return {
-    props: {}
+    props: {
+      title: post.title,
+      publish: post.publishDate,
+      content: post.content,
+      categories: post.categories
+    }
   }
 }
 
