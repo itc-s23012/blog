@@ -20,6 +20,7 @@ const Blog = ({ posts }) => {
 
 const getStaticProps = async () => {
   const posts = await getAllPosts()
+  const processedPosts = []
 
   for (const post of posts) {
     if (!Object.prototype.hasOwnProperty.call(post, 'eyecatch')) {
@@ -27,11 +28,13 @@ const getStaticProps = async () => {
     }
     const { base64 } = await getPlaiceholder(post.eyecatch.url)
     post.eyecatch.blurDataURL = base64
+
+    processedPosts.push(post)
   }
 
   return {
     props: {
-      posts
+      posts: processedPosts
     }
   }
 }
