@@ -41,6 +41,7 @@ const Schedule = ({
 
         <figure>
           <Image
+            key={eyecatch.url}
             src={eyecatch.url}
             alt=''
             layout='responsive'
