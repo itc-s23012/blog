@@ -17,7 +17,7 @@ const Posts = ({ posts }) => {
                   objectFit='cover'
                   width={eyecatch.width}
                   height={eyecatch.height}
-                  sizes='(min-width: 1152px)'
+                  min-width={(1152, 576)}
                   placeholder='blur'
                   blurDataURL={eyecatch.blurDataURL}
                 />
