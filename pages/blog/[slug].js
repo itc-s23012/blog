@@ -17,7 +17,7 @@ import Image from 'next/legacy/image'
 import { getPlaiceholder } from 'plaiceholder'
 import { eyecatchLocal } from 'lib/constants'
 
-const Schedule = ({
+const Post = ({
   title,
   publish,
   content,
@@ -110,6 +110,6 @@ const getStaticProps = async context => {
   }
 }
 
-export default Schedule
+export default Post
 export { getStaticProps }
 export { getStaticPaths }

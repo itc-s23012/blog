@@ -34,7 +34,7 @@ const getStaticProps = async context => {
   const posts = await getAllPostsByCategory(cat.id)
 
   for (const post of posts) {
-    if (!('eyecatch' in post)) {
+    if (!post.hasOwnProperty('eyecatch')) {
       post.eyecatch = eyecatchLocal
     }
 
