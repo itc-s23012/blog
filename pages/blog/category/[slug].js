@@ -37,8 +37,16 @@ const getStaticProps = async context => {
     if (!Object.prototype.propertyIsEnumerable.call(post, 'eyecatch')) {
       post.eyecatch = eyecatchLocal
     }
-    const { base64 } = await getPlaiceholder(post.eyecatch.url)
-    post.eyecatch.blurDataURL = base64
+
+    console.log('Before getPlaiceholder call:', post)
+    try {
+      const { base64 } = await getPlaiceholder(post.eyecatch.url)
+      post.eyecatch.blurDataURL = base64
+    } catch (error) {
+      console.error('Error in getPlaiceholder:', error)
+    }
+
+    console.log('After getPlaiceholder call:', post)
   }
 
   return {
