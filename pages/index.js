@@ -29,7 +29,7 @@ const getStaticProps = async () => {
   const posts = await getAllPosts(4)
 
   for (const post of posts) {
-    if (!post.hasOwnProperty('eyecatch')) {
+    if (!('eyecatch' in post)) {
       post.eyecatch = eyecatchLocal
     }
     const { base64 } = await getPlaiceholder(post.eyecatch.url)
