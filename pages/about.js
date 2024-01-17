@@ -28,7 +28,7 @@ const About = () => {
           src={eyecatch}
           alt=''
           layout='responsive'
-          sizes='(min-width: 1152px)'
+          min-width={1152}
           priority
           placeholder='blur'
         />

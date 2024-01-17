@@ -13,8 +13,8 @@ const Hero = ({ title, subtitle, imageOn = false }) => {
           <Image
             src={cube}
             alt=''
-            layout='responsive'
-            sizes='(min-width: 1152px)  (min-width: 768px)'
+            min-width={1152}
+            min-height={768}
             priority
             placeholder='blur'
           />

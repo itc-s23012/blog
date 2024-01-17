@@ -47,7 +47,7 @@ const Post = ({
             layout='responsive'
             width={eyecatch.width}
             height={eyecatch.height}
-            sizes='(min-width: 1152px)'
+            min-width={1152}
             priority
             placeholder='blur'
             blurDataURL={eyecatch.blurDataURL}
