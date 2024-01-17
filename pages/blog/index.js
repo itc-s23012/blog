@@ -6,12 +6,12 @@ import Posts from 'components/posts'
 import { getPlaiceholder } from 'plaiceholder'
 
 import { eyecatchLocal } from 'lib/constants'
-const props2 = { title: 'Blog', subtitle: 'Recent Posts' }
-const Blog = ({ posts }) => {
+const props = { title: 'Blog', subtitle: 'Recent Posts' }
+const Home = ({ posts }) => {
   return (
     <Container>
       <Meta pageTitle='ブログ' />
-      <Hero {...props2} />
+      <Hero {...props} />
 
       <Posts posts={posts} />
     </Container>
@@ -20,24 +20,21 @@ const Blog = ({ posts }) => {
 
 const getStaticProps = async () => {
   const posts = await getAllPosts()
-  const processedPosts = []
 
   for (const post of posts) {
-    if (!Object.prototype.hasOwnProperty.call(post, 'eyecatch')) {
+    if (!post.hasOwnProperty('eyecatch')) {
       post.eyecatch = eyecatchLocal
     }
     const { base64 } = await getPlaiceholder(post.eyecatch.url)
     post.eyecatch.blurDataURL = base64
-
-    processedPosts.push(post)
   }
 
   return {
     props: {
-      posts: processedPosts
+      posts
     }
   }
 }
 
-export default Blog
+export default Home
 export { getStaticProps }
