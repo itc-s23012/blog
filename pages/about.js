@@ -10,7 +10,7 @@ import {
 import Contact from 'components/contact'
 import Image from 'next/legacy/image'
 import eyecatch from 'images-local/about.jpg'
-const props1 = { title: 'about', subtitle: 'about development activities' }
+const props = { title: 'about', subtitle: 'about development activities' }
 const About = () => {
   return (
     <Container>
@@ -21,14 +21,14 @@ const About = () => {
         pageImgW={eyecatch.width}
         pageImgH={eyecatch.height}
       />
-      <Hero {...props1} />
+      <Hero {...props} />
 
       <figure>
         <Image
           src={eyecatch}
           alt=''
           layout='responsive'
-          sizes='(min-width: 1152px) 1152px, 100vw'
+          sizes='(min-width: 1152px)'
           priority
           placeholder='blur'
         />
