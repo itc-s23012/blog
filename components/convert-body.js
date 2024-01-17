@@ -13,7 +13,7 @@ const ConvertBody = ({ contentHTML }) => {
             width={width}
             height={height}
             alt={alt}
-            min-width={768}
+            sizes='(min-width: 768px) 768px, 100vw'
           />
         )
       }
