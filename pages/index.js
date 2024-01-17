@@ -29,19 +29,12 @@ const getStaticProps = async () => {
   const posts = await getAllPosts(4)
 
   for (const post of posts) {
-  if (!Object.prototype.propertyIsEnumerable.call(post, 'eyecatch')) {
-    post.eyecatch = eyecatchLocal;
+    if (!Object.prototype.hasOwnProperty.call(post, 'eyecatch')) {
+      post.eyecatch = eyecatchLocal
+    }
+    const { base64 } = await getPlaiceholder(post.eyecatch.url)
+    post.eyecatch.blurDataURL = base64
   }
-
-  console.log('Before getPlaiceholder call:', post);
-
-  try {
-    const { base64 } = await getPlaiceholder(post.eyecatch.url);
-    post.eyecatch.blurDataURL = base64;
-  } catch (error) {
-    console.error('Error in getPlaiceholder:', error);
-  }
-
 
   return {
     props: {
@@ -49,5 +42,6 @@ const getStaticProps = async () => {
     }
   }
 }
+
 export default Home
 export { getStaticProps }
