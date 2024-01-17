@@ -34,7 +34,7 @@ const getStaticProps = async context => {
   const posts = await getAllPostsByCategory(cat.id)
 
   for (const post of posts) {
-    if (!Object.prototype.hasOwnProperty.call(post, 'eyecatch')) {
+    if (!Object.prototype.propertyIsEnumerable.call(post, 'eyecatch')) {
       post.eyecatch = eyecatchLocal
     }
     const { base64 } = await getPlaiceholder(post.eyecatch.url)
