@@ -1,6 +1,6 @@
 import styles from 'styles/hero.module.css'
 import Image from 'next/legacy/image'
-import cube from 'images-local/cube.jpg'
+import cube from 'images/cube.jpg'
 const Hero = ({ title, subtitle, imageOn = false }) => {
   return (
     <div className={styles.flexContainer}>
@@ -15,11 +15,8 @@ const Hero = ({ title, subtitle, imageOn = false }) => {
             alt=''
             priority
             placeholder='blur'
+            layout='responsive'
             sizes='(min-width: 1152px) 576px, (min-width: 768px) 50vw, 100vw'
-            style={{
-              width: '100%',
-              height: 'auto'
-            }}
           />
         </figure>
       )}

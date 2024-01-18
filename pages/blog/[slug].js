@@ -13,7 +13,7 @@ import {
 import ConvertBody from 'components/convert-body'
 import PostCategories from 'components/post-categories'
 import Pagination from 'components/pagination'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import { getPlaiceholder } from 'plaiceholder'
 import { eyecatchLocal } from 'lib/constants'
 

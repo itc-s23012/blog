@@ -9,7 +9,7 @@ import {
 } from 'components/two-column'
 import Contact from 'components/contact'
 import Image from 'next/legacy/image'
-import eyecatch from 'images-local/about.jpg'
+import eyecatch from 'images/about.jpg'
 const props = { title: 'about', subtitle: 'about development activities' }
 const About = () => {
   return (
@@ -18,8 +18,8 @@ const About = () => {
         pageTitle='アバウト'
         pageDesc='About development activities'
         pageImg={eyecatch.src}
-        pageImgW={eyecatch.width}
-        pageImgH={eyecatch.height}
+        pageImgW={eyecatch.src}
+        pageImgH={eyecatch.src}
       />
       <Hero {...props} />
 
@@ -29,6 +29,7 @@ const About = () => {
           alt=''
           placeholder='blur'
           priority
+          layout='responsive'
           sizes='(min-width: 1152px) 1152px, 100vw'
           style={{
             width: '100%',
